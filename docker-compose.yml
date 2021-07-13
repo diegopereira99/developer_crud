@@ -1,0 +1,30 @@
+version: '3'
+services:
+
+  db:
+    image: "mysql:5.7.10"
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "admin"
+      MYSQL_USER: "user"
+      MYSQL_PASSWORD: "123"
+      MYSQL_DATABASE: "gazin_api"
+  api:
+    container_name: gazin_api
+    restart: always
+    build: ./gazin_api_test
+    ports:
+        - "3000:3000"
+    depends_on:
+        - db
+  app:
+    container_name: gazin_app
+    restart: always
+    build: ./gazin_front_test
+    ports:
+        - "8080:8080"
+    depends_on:
+        - api
+
+
