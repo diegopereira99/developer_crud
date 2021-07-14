@@ -21,5 +21,5 @@
 - MySql
     - Banco de dados relacional
 - Docker
-    - Criação de imagem
+    - Containerização da aplicação
 
